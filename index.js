@@ -61,7 +61,7 @@ const run = async () => {
       console.log(comment);
 
       const result = await productCollection.updateOne(
-        { _id: ObjectId(productId) },
+        { _id:new ObjectId(productId) },
         { $push: { comments: comment } }
       );
 
@@ -81,7 +81,7 @@ const run = async () => {
       const productId = req.params.id;
 
       const result = await productCollection.findOne(
-        { _id: ObjectId(productId) },
+        { _id:new ObjectId(productId) },
         { projection: { _id: 0, comments: 1 } }
       );
 
